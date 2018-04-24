@@ -17,6 +17,10 @@ Desktop.ini
 *.dll
 *.so
 *.dylib
+bin/*
+!bin/.gitkeep
+pkg/*
+!pkg/.gitkeep
 
 # Test binary, build with `go test -c`
 *.test
