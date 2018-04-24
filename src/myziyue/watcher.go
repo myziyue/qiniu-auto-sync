@@ -60,14 +60,14 @@ func (self monitor) Do() {
 				}
 
 				if w.IsModify() {
-					log.Println(w.Name, " 文件被修改.")
+					//log.Println(w.Name, " 文件被修改.")
 					continue
 				}
 
 				if w.IsDelete() {
-					log.Println(w.Name, " 文件被删除.")
-					fileName := GetFilePath(w.Name)
-					log.Println(fileName + " is delete")
+					//log.Println(w.Name, " 文件被删除.")
+					//fileName := GetFilePath(w.Name)
+					//log.Println(fileName + " is delete")
 
 					//if fileIsDir(w.Name) {
 					//	log.Println(fileName + " is dir")
@@ -80,10 +80,10 @@ func (self monitor) Do() {
 				}
 
 				if w.IsRename() {
-					w = <-self.watch.Event
-					log.Println(w)
-					self.watch.RemoveWatch(w.Name)
-					log.Println(w.Name, " 被重命名.")
+					//w = <-self.watch.Event
+					//log.Println(w)
+					//self.watch.RemoveWatch(w.Name)
+					//log.Println(w.Name, " 被重命名.")
 
 					//fileName := GetFilePath(w.Name)
 					//
@@ -122,7 +122,6 @@ func GetWatcherPaths(watchPath []string) []string {
 
 		// 监控子目录
 		for _, v := range dirList {
-			log.Println(watchPath)
 			if v.IsDir() {
 				dirName := watchPath[i] + v.Name() + string(os.PathSeparator)
 				dirNames = append(dirNames, dirName)

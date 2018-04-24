@@ -15,5 +15,14 @@ func main()  {
 		return
 	}
 
-	myziyue.SyncFile(myziyue.GetWatcherPaths(strings.Split(WatchePath, ";")))
+
+	// 配置文件监控的子目录
+	dirList := myziyue.GetWatcherPaths(strings.Split(WatchePath, ";"))
+	// 配置文件监控目录
+	log.Println(dirList)
+	for _,watcher := range strings.Split(WatchePath, ";") {
+		dirList = append(dirList, watcher)
+	}
+	log.Println(dirList)
+	myziyue.SyncFile(dirList)
 }
