@@ -15,5 +15,5 @@ func main()  {
 		return
 	}
 
-	myziyue.SyncFile(strings.Split(WatchePath, ";"))
+	myziyue.SyncFile(myziyue.GetWatcherPaths(strings.Split(WatchePath, ";")))
 }
