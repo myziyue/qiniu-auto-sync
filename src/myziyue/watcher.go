@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"io/ioutil"
+	"time"
 )
 
 type monitor struct {
@@ -47,6 +48,7 @@ func (self monitor) Do() {
 			select {
 			case w := <-self.watch.Event:
 				if w.IsCreate() {
+					time.Sleep(3 * 1e9)
 					//UploadFile(w.Name, w.Name)
 					fileName := GetFilePath(w.Name)
 
