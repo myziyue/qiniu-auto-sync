@@ -174,7 +174,7 @@ func GetFilePath(filePath string) string {
 		filePath = strings.Replace(filePath, prefixPaths[i], "", -1)
 	}
 	pathSeparator := string(os.PathSeparator)
-	return "/" + strings.Replace(strings.Replace(filePath, pathSeparator + pathSeparator, pathSeparator, -1), "\\", "/", -1)
+	return strings.Replace(strings.Replace(filePath, pathSeparator + pathSeparator, pathSeparator, -1), "\\", "/", -1)
 }
 
 func Batch()  {
