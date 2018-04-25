@@ -55,11 +55,11 @@ func UploadFile(filePath string, uploadFileName string) {
 	upToken := putPolicy.UploadToken(mac)
 	err := formUploader.PutFile(context.Background(), &ret, upToken, uploadFileName, filePath, nil)
 	if err != nil {
-		log.Infof("'" + uploadFileName + "' upload file error", filePath, err)
+		log.Infof("'" + uploadFileName + "' upload file error", err)
 		return
 	}
 
-	log.Infof("'" + uploadFileName + "' upload file success! ", ret.Key, ret.Hash)
+	log.Infof("'" + uploadFileName + "' upload file success! ")
 	return
 }
 

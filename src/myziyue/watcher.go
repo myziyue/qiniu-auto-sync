@@ -47,7 +47,6 @@ func (self monitor) Do() {
 			select {
 			case w := <-self.watch.Event:
 				if w.IsCreate() {
-					log.Println(w.Name, " 文件被创建.")
 					//UploadFile(w.Name, w.Name)
 					fileName := GetFilePath(w.Name)
 
