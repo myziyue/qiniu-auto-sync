@@ -55,7 +55,7 @@ func UploadFile(filePath string, uploadFileName string) {
 	upToken := putPolicy.UploadToken(mac)
 	err := formUploader.PutFile(context.Background(), &ret, upToken, uploadFileName, filePath, nil)
 	if err != nil {
-		log.Fatalf("'" + uploadFileName + "' upload file error", filePath, err)
+		log.Infof("'" + uploadFileName + "' upload file error", filePath, err)
 		return
 	}
 
@@ -89,7 +89,7 @@ func DeleteFile(fileName string) {
 
 	err := bucketManager.Delete(Bucket, fileName)
 	if err != nil {
-		log.Fatalf("Delete file faild!", fileName, err)
+		log.Infof("Delete file faild!", fileName, err)
 		return
 	}
 	log.Infof("Delete file success! ", fileName)
@@ -122,7 +122,7 @@ func MoveFile(srcName string, destName string) {
 
 	err := bucketManager.Move(Bucket, srcName, Bucket, destName, ForceOverwrite == "1")
 	if err != nil {
-		log.Fatalf("Move file faild!", srcName, "=>", destName, err)
+		log.Infof("Move file faild!", srcName, "=>", destName, err)
 		return
 	}
 	log.Infof("Move file success! ", srcName, "=>", destName, )
@@ -155,7 +155,7 @@ func CopyFile(srcName string, destName string) {
 
 	err := bucketManager.Copy(Bucket, srcName, Bucket, destName, ForceOverwrite == "1")
 	if err != nil {
-		log.Fatalf("Copy file faild!", srcName, "=>", destName, err)
+		log.Infof("Copy file faild!", srcName, "=>", destName, err)
 		return
 	}
 	log.Infof("Copy file success! ", srcName, "=>", destName)
