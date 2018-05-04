@@ -14,15 +14,15 @@ $ go get -v github.com/qiniu/api.v7
 1. Mac 下编译 Linux 和 Windows 64位可执行程序
 
 ```bash
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/qnrsync-linux-x86_64 src/qnrsync/qnrsync.go
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/qnrsync-windows-x86_64.exe src/qnrsync/qnrsync.go
 ```
 
 2. Linux 下编译 Mac 和 Windows 64位可执行程序
 
 ```bash
-CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
+CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o bin/qnrsync-darwin-amd64 src/qnrsync/qnrsync.go
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/qnrsync-windows-x86_64.exe src/qnrsync/qnrsync.go
 ```
 
 3. Windows 下编译 Mac 和 Linux 64位可执行程序
@@ -31,10 +31,10 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
 SET CGO_ENABLED=0
 SET GOOS=darwin
 SET GOARCH=amd64
-go build main.go
+go build -o bin/qnrsync-darwin-amd64 src/qnrsync/qnrsync.go
 
 SET CGO_ENABLED=0
 SET GOOS=linux
 SET GOARCH=amd64
-go build main.go
+go build -o bin/qnrsync-linux-x86_64 src/qnrsync/qnrsync.go
 ```
